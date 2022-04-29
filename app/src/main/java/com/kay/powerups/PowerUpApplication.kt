@@ -9,7 +9,7 @@ class PowerUpApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // Start Koin
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@PowerUpApplication)
             modules(appModule)

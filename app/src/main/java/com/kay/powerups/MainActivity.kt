@@ -2,10 +2,6 @@ package com.kay.powerups
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.apollographql.apollo3.ApolloClient
-import com.kay.PowerUpsQuery
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
