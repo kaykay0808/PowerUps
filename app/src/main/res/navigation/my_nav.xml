@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.kay.powerups.ui.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_powerUpDescriptionFragment"
+            app:destination="@id/powerUpDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/powerUpDescriptionFragment"
+        android:name="com.kay.powerups.ui.PowerUpDescriptionFragment"
+        android:label="fragment_power_up_description"
+        tools:layout="@layout/fragment_power_up_description" >
+        <action
+            android:id="@+id/action_powerUpDescriptionFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,6 @@
+(1) setup gradle
+(2) setup the navigation graph
+(3) design the different fragments
+(4) implement some transaction animation between fragments.
+(5) setup Apollo
+    -> https://www.apollographql.com/docs/kotlin/tutorial/01-configure-project
