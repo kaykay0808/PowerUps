@@ -1,4 +1,4 @@
-package com.kay.powerups.ui
+package com.kay.powerups.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
