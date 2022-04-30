@@ -3,6 +3,8 @@ package com.kay.powerups.ui.fragments.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.kay.powerups.R
 import com.kay.powerups.databinding.ItemPowerUpsRowBinding
 import com.kay.powerups.ui.PowerUpsUiModel
 
@@ -20,6 +22,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val thisImage = dataList[position]
+        holder.binding.imageViewUrl.load(thisImage.imageUrl) {
+            crossfade(600)
+            error(R.drawable.ic_launcher_background)
+        }
         holder.binding.tvNamePowerUp.text = dataList[position].title
         holder.binding.tvDescription.text = dataList[position].description
 
