@@ -33,11 +33,11 @@
                 android:padding="5dp">
 
                 <ImageView
+                    android:id="@+id/imageViewUrl"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:contentDescription="image"
-                    android:src="@mipmap/ic_launcher"
-                    app:civ_border_color="@color/#757575" />
+                    android:src="@mipmap/ic_launcher" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
