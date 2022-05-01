@@ -2,11 +2,15 @@ package com.kay.powerups.ui.fragments.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.ListFragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.kay.powerups.R
 import com.kay.powerups.databinding.ItemPowerUpsRowBinding
 import com.kay.powerups.ui.PowerUpsUiModel
+import com.kay.powerups.ui.fragments.ListFragmentDirections
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     var dataList = emptyList<PowerUpsUiModel>()
@@ -29,6 +33,12 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         }
         holder.binding.tvNamePowerUp.text = dataList[position].title
         holder.binding.tvDescription.text = dataList[position].description
+
+        // navigate with Item
+        holder.binding.rowBackground.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToPowerUpDescriptionFragment(dataList[position])
+            holder.itemView.findNavController().navigate(action)
+        }
 
     }
 

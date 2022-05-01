@@ -11,4 +11,5 @@
     <!-- values for our recyclerView -->
     <color name="primary_text_color">#212121</color>
     <color name="description_text_color">#606060</color>
+    <color name="button_color">#66B9F9</color>
 </resources>

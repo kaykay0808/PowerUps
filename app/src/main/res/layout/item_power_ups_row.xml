@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/teal_200"
     android:layout_margin="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/row_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -53,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/primary_text_color"
                         android:textSize="14sp"
-                        android:text="POWER-UP NAME"
+                        android:text="@string/power_up_name"
                         android:textStyle="bold"/>
 
                     <TextView
