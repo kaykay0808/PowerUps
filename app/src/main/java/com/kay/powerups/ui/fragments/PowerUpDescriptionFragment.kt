@@ -27,6 +27,8 @@ class PowerUpDescriptionFragment : Fragment() {
         binding.currentTitle.text = args.currentItem.title
         binding.currentDescription.text = args.currentItem.description
         binding.CurrentImageViewUrl.load(args.currentItem.imageUrl)
+        binding.tvLongDescription.text = args.currentItem.longDescription
+        binding.testThisTv.text = args.currentItem.storeUrl
 
         return binding.root
     }

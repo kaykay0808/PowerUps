@@ -100,6 +100,7 @@
             android:padding="15dp">
 
             <TextView
+                android:id="@+id/testThisTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="More About"
@@ -107,6 +108,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvLongDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="some very looong details and descriptionm"
