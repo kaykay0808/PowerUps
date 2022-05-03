@@ -17,10 +17,10 @@ sealed class HomeRecyclerViewHolder(binding: ViewBinding) : RecyclerView.ViewHol
 
     class PowerUpsHolder(private val binding: ItemPowerUpsRowBinding) :
         HomeRecyclerViewHolder(binding) {
-        fun bindPowerUps(powerUps: PowerUpListItem.PowerUpUiModel) {
-            binding.imageViewUrl.load(powerUps.uiModel.imageUrl)
-            binding.tvNamePowerUp.text = powerUps.uiModel.title
-            binding.tvDescription.text= powerUps.uiModel.description
+        fun bindPowerUps(powerUps: PowerUpsUiModel) {
+            binding.imageViewUrl.load(powerUps.imageUrl)
+            binding.tvNamePowerUp.text = powerUps.title
+            binding.tvDescription.text= powerUps.description
         }
     }
 }

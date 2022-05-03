@@ -20,8 +20,8 @@ import java.lang.IllegalArgumentException
 const val VIEW_TYPE_SECTION = 1
 const val VIEW_TYPE_ITEM = 2
 
-class ListAdapter (var itemList: List<PowerUpListItem>) : RecyclerView.Adapter<HomeRecyclerViewHolder>(){ /* Removed the -> ListAdapter.MyViewHolder*/
-    var dataList = emptyList<PowerUpsUiModel>() // <- maybe replace this
+class ListAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>(){ /* Removed the -> ListAdapter.MyViewHolder*/
+    var dataList = emptyList<PowerUpListItem>() // <- maybe replace this
     var items = listOf<HomeRecyclerViewHolder>()
 
     class MyViewHolder (val binding: ItemPowerUpsRowBinding) : RecyclerView.ViewHolder(binding.root) {

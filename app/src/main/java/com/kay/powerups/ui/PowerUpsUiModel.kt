@@ -11,4 +11,4 @@ data class PowerUpsUiModel(
     val connected: Boolean,
     val storeUrl: String,
     val imageUrl: String
-) : Parcelable
+) : Parcelable, PowerUpListItem()

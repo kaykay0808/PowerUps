@@ -7,5 +7,6 @@ sealed class PowerUpListItem {
         val title: String
     ) : PowerUpListItem()
 
-    data class PowerUpUiModel(var uiModel: PowerUpsUiModel) : PowerUpListItem()
+    /*data class PowerUpUiModel(var uiModel: PowerUpsUiModel) : PowerUpListItem()*/
+    // Note: adding the PowerUpListItem to the UiModel instead
 }
