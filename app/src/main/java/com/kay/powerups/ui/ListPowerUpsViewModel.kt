@@ -38,16 +38,3 @@ class ListPowerUpsViewModel(private val repo: PowerUpsRepository/*asking reposit
         }
     }
 }
-/* fun getData() : List<PowerUpListItem>{
-val powerUps = repository.getData()
-return buildList{
-add(Header("Active"))
-addAll(powerUps.filter{it.connected})
-add(Header("Inactive"))
-addAll(powerUps.filter{!it.connected})
-}
-}
-return buildList {
-            add(PowerUpListItem.Header("Active"))
-            addAll(powerUps.filter{it.connected})
-        }*/

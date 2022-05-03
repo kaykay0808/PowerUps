@@ -28,7 +28,6 @@ sealed class HomeRecyclerViewHolder(binding: ViewBinding) : RecyclerView.ViewHol
             binding.rowBackground.setOnClickListener {
                 val action = ListFragmentDirections.actionListFragmentToPowerUpDescriptionFragment(powerUp)
                 itemView.findNavController().navigate(action)
-
             }
         }
     }
