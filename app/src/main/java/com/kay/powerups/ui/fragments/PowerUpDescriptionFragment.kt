@@ -1,15 +1,13 @@
 package com.kay.powerups.ui.fragments
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
-import android.graphics.Color.red
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -36,18 +34,34 @@ class PowerUpDescriptionFragment : Fragment() {
         binding.currentDescription.text = args.currentItem.description
         binding.CurrentImageViewUrl.load(args.currentItem.imageUrl)
         binding.tvLongDescription.text = args.currentItem.longDescription
-        binding.testThisTv.text = args.currentItem.storeUrl
-        //binding.btnConnect.text = args.currentItem.connected.toString()
+        binding.tvMoreAbout.setText("More About ${args.currentItem.title}")
+
+        buttonConnectedCheck()
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Tibber Store Button
+        binding.btnTibberStore.setOnClickListener{
+            // Loading Url webpage
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(args.currentItem.storeUrl))
+            startActivity(browserIntent)
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private fun buttonConnectedCheck() {
         if (args.currentItem.connected) {
             binding.btnConnect.setText("Disconnect from Tibber")
-            binding.btnConnect.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(ContextCompat.getColor(requireContext(), R.color.disconnect_color), BlendModeCompat.SRC_ATOP)/*backgroundTintList = ColorStateList.valueOf(R.color.disconnect_color)*/
+            binding.btnConnect.background = ContextCompat.getDrawable(
+                requireContext(),
+                R.drawable.dissconnect_custom_oval_button
+            )
+            binding.btnConnect.setTextColor(R.color.disconnect_color)
         } else {
             binding.btnConnect.setText("Connect To Tibber")
         }
-
-
-
-        return binding.root
     }
 
     override fun onDestroyView() {

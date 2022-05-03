@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kay.powerups.databinding.FragmentListBinding
 import com.kay.powerups.ui.ListPowerUpsViewModel
 import com.kay.powerups.ui.PowerUpListItem
-import com.kay.powerups.ui.PowerUpsUiModel
 import com.kay.powerups.ui.fragments.adapter.ListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,18 +27,18 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding =  FragmentListBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getInfo()
 
-        //recycler view
+        // recycler view
         recyclerViewSetup()
 
-        //observe LiveData
-        viewModel.liveData.observe(viewLifecycleOwner, {setupList(it)})
+        // observe LiveData
+        viewModel.liveData.observe(viewLifecycleOwner, { setupList(it) })
         viewModel.errorLiveData.observe(viewLifecycleOwner) {
             binding.recyclerView.isVisible = it == null
         }
@@ -51,7 +50,7 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
 
-    private  fun setupList(data: List<PowerUpListItem>) {
+    private fun setupList(data: List<PowerUpListItem>) {
         adapter.setData(data)
     }
 

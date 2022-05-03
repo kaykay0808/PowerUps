@@ -59,7 +59,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,16 +68,17 @@
         android:layout_marginEnd="15dp"
         android:text="Connect to Tibber"
         android:textSize="14sp"
+        android:textColor="@color/white"
         android:background="@drawable/custom_oval_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_tibber_store"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buy at the Tibber store"
+        android:text="@string/buy_at_the_tibber_store"
         android:layout_marginTop="22dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
@@ -100,7 +101,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/testThisTv"
+                android:id="@+id/tvMoreAbout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="More About"
