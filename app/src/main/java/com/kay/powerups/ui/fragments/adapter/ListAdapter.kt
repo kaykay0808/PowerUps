@@ -17,12 +17,8 @@ import com.kay.powerups.ui.PowerUpsUiModel
 import com.kay.powerups.ui.fragments.ListFragmentDirections
 import java.lang.IllegalArgumentException
 
-const val VIEW_TYPE_SECTION = 1
-const val VIEW_TYPE_ITEM = 2
-
 class ListAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>(){ /* Removed the -> ListAdapter.MyViewHolder*/
     var dataList = emptyList<PowerUpListItem>() // <- maybe replace this
-    var items = listOf<HomeRecyclerViewHolder>()
 
     class MyViewHolder (val binding: ItemPowerUpsRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -53,8 +49,8 @@ class ListAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>(){ /* Removed t
 
     override fun onBindViewHolder(holder: HomeRecyclerViewHolder, position: Int) {
         when(holder){
-            is HomeRecyclerViewHolder.HeaderViewHolder -> holder.bindHeader(items[position] as PowerUpListItem.Header)
-            is HomeRecyclerViewHolder.PowerUpsHolder -> holder.bindPowerUps(items[position] as PowerUpListItem.PowerUpUiModel)
+            is HomeRecyclerViewHolder.HeaderViewHolder -> holder.bindHeader(dataList[position] as PowerUpListItem.Header)
+            is HomeRecyclerViewHolder.PowerUpsHolder -> holder.bindPowerUps(dataList[position] as PowerUpsUiModel)
         }
 
         /*val thisImage = dataList[position]
@@ -78,14 +74,14 @@ class ListAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>(){ /* Removed t
     }
 
     override fun getItemViewType(position: Int): Int {
-         when (items[position]){
-            is HomeRecyclerViewHolder.HeaderViewHolder -> R.layout.item_header
-            is HomeRecyclerViewHolder.PowerUpsHolder -> R.layout.item_power_ups_row
+        return when (dataList[position]) {
+            is PowerUpListItem.Header -> R.layout.item_header
+
+            is PowerUpsUiModel -> R.layout.item_power_ups_row
         }
-        return VIEW_TYPE_ITEM
     }
 
-    fun setData(newData: List<PowerUpsUiModel>){
+    fun setData(newData: List<PowerUpListItem>){
         this.dataList = newData
         notifyDataSetChanged()
     }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 class ListPowerUpsViewModel(private val repo: PowerUpsRepository/*asking repository for uiModel*/) :
     ViewModel() {
 
-    private val liveData = MutableLiveData<List<PowerUpListItem>>()
+    val liveData = MutableLiveData<List<PowerUpListItem>>()
     var errorLiveData = MutableLiveData<String?>()
 
     fun getInfo() {
@@ -17,11 +17,20 @@ class ListPowerUpsViewModel(private val repo: PowerUpsRepository/*asking reposit
             try {
                 val powerUps = repo.getData()
                 val listItems = buildList {
+                    // Add a header
                     add(PowerUpListItem.Header("Active"))
-
+                    // Add all active header
+                    if (powerUps != null) {
+                        addAll(powerUps.filter { it.connected })
+                    }
+                    // Add second header
+                    add(PowerUpListItem.Header("Inactive"))
+                    // add all inactive header
+                    if (powerUps != null) {
+                        addAll(powerUps.filter { !it.connected })
+                    }
                 }
-
-                liveData.postValue(liveData)
+                liveData.postValue(listItems)
                 errorLiveData.postValue(null)
             } catch (e: Exception) {
                 errorLiveData.postValue("error")

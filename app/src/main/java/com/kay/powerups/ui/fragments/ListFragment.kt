@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kay.powerups.databinding.FragmentListBinding
 import com.kay.powerups.ui.ListPowerUpsViewModel
+import com.kay.powerups.ui.PowerUpListItem
 import com.kay.powerups.ui.PowerUpsUiModel
 import com.kay.powerups.ui.fragments.adapter.ListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,7 +51,7 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
 
-    private  fun setupList(data: List<PowerUpsUiModel>) {
+    private  fun setupList(data: List<PowerUpListItem>) {
         adapter.setData(data)
     }
 
