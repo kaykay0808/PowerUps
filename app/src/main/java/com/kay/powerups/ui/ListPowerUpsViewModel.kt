@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.kay.powerups.data.PowerUpsRepository
 import kotlinx.coroutines.launch
 
-class ListPowerUpsViewModel(private val repo: PowerUpsRepository/*asking repository for uiModel*/) :
+class ListPowerUpsViewModel(private val repo: PowerUpsRepository) :
     ViewModel() {
 
     val liveData = MutableLiveData<List<PowerUpListItem>>()
