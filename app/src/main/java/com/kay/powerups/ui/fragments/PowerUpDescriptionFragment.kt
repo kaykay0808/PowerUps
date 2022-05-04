@@ -30,6 +30,7 @@ class PowerUpDescriptionFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding =  FragmentPowerUpDescriptionBinding.inflate(inflater, container, false)
 
+
         binding.currentTitle.text = args.currentItem.title
         binding.currentDescription.text = args.currentItem.description
         binding.CurrentImageViewUrl.load(args.currentItem.imageUrl)
