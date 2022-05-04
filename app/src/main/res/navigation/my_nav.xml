@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.kay.powerups.ui.fragments.ListFragment"
-        android:label="fragment_list"
+        android:label="Power-ups"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_powerUpDescriptionFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/powerUpDescriptionFragment"
         android:name="com.kay.powerups.ui.fragments.PowerUpDescriptionFragment"
-        android:label="fragment_power_up_description"
+        android:label="Description"
         tools:layout="@layout/fragment_power_up_description" >
         <action
             android:id="@+id/action_powerUpDescriptionFragment_to_listFragment"
