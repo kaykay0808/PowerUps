@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -30,12 +31,15 @@ class PowerUpDescriptionFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding =  FragmentPowerUpDescriptionBinding.inflate(inflater, container, false)
 
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.currentTitle.text = args.currentItem.title
         binding.currentDescription.text = args.currentItem.description
         binding.CurrentImageViewUrl.load(args.currentItem.imageUrl)
         binding.tvLongDescription.text = args.currentItem.longDescription
-        binding.tvMoreAbout.setText("More About ${args.currentItem.title}")
+        binding.tvMoreAbout.text = "More About ${args.currentItem.title}"
+
+        (activity as AppCompatActivity).supportActionBar?.title = args.currentItem.title
 
         buttonConnectedCheck()
 
