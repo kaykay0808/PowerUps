@@ -29,7 +29,7 @@ class PowerUpDescriptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding =  FragmentPowerUpDescriptionBinding.inflate(inflater, container, false)
+        _binding = FragmentPowerUpDescriptionBinding.inflate(inflater, container, false)
 
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -48,7 +48,7 @@ class PowerUpDescriptionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Tibber Store Button
-        binding.btnTibberStore.setOnClickListener{
+        binding.btnTibberStore.setOnClickListener {
             // Loading Url webpage
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(args.currentItem.storeUrl))
             startActivity(browserIntent)

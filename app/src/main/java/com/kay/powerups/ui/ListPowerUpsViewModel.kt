@@ -13,27 +13,29 @@ class ListPowerUpsViewModel(private val repo: PowerUpsRepository) :
     var errorLiveData = MutableLiveData<String?>()
 
     fun getInfo() {
-        viewModelScope.launch {
-            try {
-                val powerUps = repo.getData()
-                val listItems = buildList {
-                    // Add a header
-                    add(PowerUpListItem.Header("Active"))
-                    // Add all active header
-                    if (powerUps != null) {
-                        addAll(powerUps.filter { it.connected })
+        if (liveData.value.isNullOrEmpty()) {
+            viewModelScope.launch {
+                try {
+                    val powerUps = repo.getData()
+                    val listItems = buildList {
+                        // Add a header
+                        add(PowerUpListItem.Header("Active"))
+                        // Add all active header
+                        if (powerUps != null) {
+                            addAll(powerUps.filter { it.connected })
+                        }
+                        // Add second header
+                        add(PowerUpListItem.Header("Inactive"))
+                        // add all inactive header
+                        if (powerUps != null) {
+                            addAll(powerUps.filter { !it.connected })
+                        }
                     }
-                    // Add second header
-                    add(PowerUpListItem.Header("Inactive"))
-                    // add all inactive header
-                    if (powerUps != null) {
-                        addAll(powerUps.filter { !it.connected })
-                    }
+                    liveData.postValue(listItems)
+                    errorLiveData.postValue(null)
+                } catch (e: Exception) {
+                    errorLiveData.postValue("error")
                 }
-                liveData.postValue(listItems)
-                errorLiveData.postValue(null)
-            } catch (e: Exception) {
-                errorLiveData.postValue("error")
             }
         }
     }
